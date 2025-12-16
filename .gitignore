@@ -1,0 +1,156 @@
+# ============================================
+#               NEXTFLOW PIPELINE
+# ============================================
+
+# Nextflow execution directories
+work/
+results/
+output/
+out/
+logs/
+.fusion/
+.fusion_cache/
+.nextflow_log*
+.nextflow.history
+.nextflow.*
+.nextflow/
+.cache/
+trace.txt
+timeline.html
+report.html
+dag.svg
+
+# nf-test cache & outputs
+.nf-test/
+.nftest/
+nf-test.log
+tests/out/
+tests/.cache/
+tests/results/
+
+# ============================================
+#               GENERAL DATA
+# ============================================
+
+# Sequencing data (FASTQ/BAM/VCF/etc.) — DO NOT COMMIT
+*.fq
+*.fq.gz
+*.bam
+*.cram
+*.bai
+*.sam
+*.vcf
+*.vcf.gz
+*.idx
+*.fai
+*.fa
+*.fasta
+*.fasta.gz
+*.gtf
+*.gff
+*.gff3
+
+# Large datasets
+data/
+test_data/
+samples/
+input/
+raw_data/
+
+# Default pattern for anything big
+*.tar
+*.tar.gz
+*.zip
+
+# ============================================
+#               DOCKER & CONTAINERS
+# ============================================
+
+# Docker build artifacts
+docker-build/
+docker-cache/
+*.img
+*.sif
+*.sif.gz
+*.sqsh
+
+# Singularity cache
+.singularity/
+.singularity.d/
+.singularity_cache/
+
+# Container runtimes
+.conda/
+.env/
+.envs/
+*.conda
+*.yml.lock
+
+# ============================================
+#               PYTHON / CONDA
+# ============================================
+
+# Python junk
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+
+# Virtual environments
+env/
+venv/
+.venv/
+
+# Conda environments
+conda/
+*.sh
+*.yml
+
+# Poetry / pip
+poetry.lock
+pip-wheel-metadata/
+build/
+
+# ============================================
+#               EDITORS / OS
+# ============================================
+
+# macOS crap
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# VSCode
+.vscode/
+.history/
+.ionide/
+
+# JetBrains
+.idea/
+
+# ============================================
+#               GIT / TEMP
+# ============================================
+
+# temp files
+*.tmp
+*.temp
+*.bak
+*~
+.tmp/
+temp/
+tmp/
+
+# ============================================
+#               MISC
+# ============================================
+
+# localhost reports
+*.html
+*.csv
+
+# Manual ignore for personal scratch space
+scratch/
+sandbox/
+local/
