@@ -1,0 +1,40 @@
+name: nf-test
+
+on:
+  pull_request:
+    branches: [ main, master ]
+  push:
+    branches: [ main, master ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Java (required by Nextflow)
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'temurin'
+        java-version: '17'
+
+    - name: Install Nextflow
+      run: |
+        curl -s https://get.nextflow.io | bash
+        sudo mv nextflow /usr/local/bin/
+
+    - name: Install nf-test
+      run: |
+        curl -fsSL https://get.nf-test.com | bash
+        sudo mv nf-test /usr/local/bin/
+
+    - name: Verify tools
+      run: |
+        nextflow -version
+        nf-test version
+
+    - name: Run nf-test suite
+      run: |
+        nf-test test --verbose

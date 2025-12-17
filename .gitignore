@@ -1,0 +1,55 @@
+########################################
+# NEXTFLOW (runtime only)
+########################################
+work/
+.fusion/
+.fusion_cache/
+.nextflow.log*
+.nextflow.history
+.nextflow/
+.cache/
+
+# Optional reports (auto-regenerated)
+trace.txt
+timeline.html
+report.html
+dag.svg
+
+
+########################################
+# PYTHON (cache + build junk)
+########################################
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+
+# Virtual envs
+.venv/
+venv/
+env/
+
+
+########################################
+# GIT / GITHUB ARTIFACTS
+########################################
+*.orig
+*.rej
+*.patch
+*.swp
+*.swo
+
+
+########################################
+# OS & EDITORS
+########################################
+
+# macOS
+.DS_Store
+
+# VSCode
+.vscode/
+
+# JetBrains
+.idea/
