@@ -30,7 +30,7 @@ jobs:
         curl -fsSL https://get.nf-test.com | bash
         sudo mv nf-test /usr/local/bin/
 
-    - name: Verify installations
+    - name: Verify tools
       run: |
         nextflow -version
         nf-test version
