@@ -1,0 +1,44 @@
+nextflow_enable.dsl=2
+
+include { FastqPreprocessing } from '../../../modules/fastq_preprocessing.nf'
+
+test("Fastp preprocessing module executes and emits expected outputs") {
+
+    setup:
+    // Build a synthetic input channel
+    def ch = Channel.of(
+        tuple(
+            "sample1",
+            [ 
+                file("test_data/R1.fastq.gz"),
+                file("test_data/R2.fastq.gz")
+            ]
+        )
+    )
+
+    when:
+    def result = FastqPreprocessing(ch)
+
+    then:
+    // Output FASTQs should exist
+    result.trimmed_reads
+        .assertExists()
+        .assertFiles([
+            "sample1_R1_trimmed.fastq.gz",
+            "sample1_R2_trimmed.fastq.gz"
+        ])
+
+    // HTML report
+    result.html_report
+        .assertExists()
+        .assertFiles([
+            "sample1_fastp_report.html"
+        ])
+
+    // JSON report
+    result.json_report
+        .assertExists()
+        .assertFiles([
+            "sample1_fastp_report.json"
+        ])
+}
